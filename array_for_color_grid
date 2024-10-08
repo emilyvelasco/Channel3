@@ -1,0 +1,42 @@
+int n_lines = 10;
+
+uint8_t color_array[] = {
+  C3_COL_RED,
+  C3_COL_LIGHT_PINK,
+  C3_COL_LIGHT_YELLOW,
+  C3_COL_GREEN_2,
+  C3_COL_GREEN_1,
+  C3_COL_TURQUOISE,
+  C3_COL_BABYBLUE_1,
+  C3_COL_BABYBLUE_2,
+  C3_COL_LIGHT_BLUE,
+  C3_COL_DARK_BLUE};
+
+int color_offset = 0;
+
+void ICACHE_FLASH_ATTR loadFrame() {
+  int color_index = color_offset;
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 4, 0, 9, 195 );
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 27, 0, 32, 195 );
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 50, 0, 55, 195 );
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 73, 0, 78, 195 );  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 96, 0, 101, 195 );
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 119, 0, 124, 195 );  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 142, 0, 147, 195 );
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 165, 0, 170, 195 );
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 188, 0, 193, 195 );
+  CNFGColor(color_array[color_index++ % n_lines]);
+  CNFGTackRectangle( 211, 0, 216, 195 );
+  
+  color_offset++;
+}
