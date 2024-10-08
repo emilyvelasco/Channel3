@@ -1,3 +1,5 @@
+#include <esp8266channel3lib.h>
+
 int n_lines = 10;
 
 uint8_t color_array[] = {
@@ -14,8 +16,12 @@ uint8_t color_array[] = {
 
 int color_offset = 0;
 
+
+// This callback gets called automatically every frame
 void ICACHE_FLASH_ATTR loadFrame() {
-  int color_index = color_offset;
+   // video_broadcast_clear_frame();
+    
+int color_index = color_offset;
   
   CNFGColor(color_array[color_index++ % n_lines]);
   CNFGTackRectangle( 4, 0, 9, 195 );
@@ -39,4 +45,36 @@ void ICACHE_FLASH_ATTR loadFrame() {
   CNFGTackRectangle( 211, 0, 216, 195 );
   
   color_offset++;
+
+    //horizontals
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 10, 216, 15 );
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 30, 216, 35 );
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 50, 216, 55 );
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 70, 216, 75 );  
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 90, 216, 95 );
+    CNFGColor(  color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 110, 216, 115 );  
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 130, 216, 135 );
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 150, 216, 155 );
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 170, 216, 175 );
+    CNFGColor( color_array[color_index++ % n_lines] );
+    CNFGTackRectangle( 0, 190, 216, 195 );
+
+}
+
+void setup() {
+  system_update_cpu_freq( SYS_CPU_160MHZ );
+  channel3Init(NTSC, &loadFrame);
+}
+
+void loop() {
+
 }
