@@ -15,14 +15,17 @@ uint8_t color_array[] = {
   C3_COL_DARK_BLUE};
 
 int color_offset = 0;
+int delay_count = 0;
 
+// number of frames to skip between each color shift
+const int delay_length = 2;
 
 // This callback gets called automatically every frame
 void ICACHE_FLASH_ATTR loadFrame() {
    // video_broadcast_clear_frame();
     
-int color_index = color_offset;
-  
+  int color_index = color_offset;
+ 
   CNFGColor(color_array[color_index++ % n_lines]);
   CNFGTackRectangle( 4, 0, 9, 195 );
   CNFGColor(color_array[color_index++ % n_lines]);
@@ -43,31 +46,32 @@ int color_index = color_offset;
   CNFGTackRectangle( 188, 0, 193, 195 );
   CNFGColor(color_array[color_index++ % n_lines]);
   CNFGTackRectangle( 211, 0, 216, 195 );
-  
-  color_offset++;
 
-    //horizontals
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 10, 216, 15 );
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 30, 216, 35 );
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 50, 216, 55 );
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 70, 216, 75 );  
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 90, 216, 95 );
-    CNFGColor(  color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 110, 216, 115 );  
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 130, 216, 135 );
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 150, 216, 155 );
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 170, 216, 175 );
-    CNFGColor( color_array[color_index++ % n_lines] );
-    CNFGTackRectangle( 0, 190, 216, 195 );
+  if (!(delay_count++ % delay)){
+    color_offset++;
+  }
 
+  //horizontals
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 10, 216, 15 );
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 30, 216, 35 );
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 50, 216, 55 );
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 70, 216, 75 );  
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 90, 216, 95 );
+  CNFGColor(  color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 110, 216, 115 );  
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 130, 216, 135 );
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 150, 216, 155 );
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 170, 216, 175 );
+  CNFGColor( color_array[color_index++ % n_lines] );
+  CNFGTackRectangle( 0, 190, 216, 195 );
 }
 
 void setup() {
