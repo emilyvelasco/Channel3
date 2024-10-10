@@ -25,53 +25,174 @@ void ICACHE_FLASH_ATTR loadFrame() {
    // video_broadcast_clear_frame();
     
   int color_index = color_offset;
- 
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 4, 0, 9, 195 );
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 27, 0, 32, 195 );
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 50, 0, 55, 195 );
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 73, 0, 78, 195 );  
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 96, 0, 101, 195 );
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 119, 0, 124, 195 );  
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 142, 0, 147, 195 );
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 165, 0, 170, 195 );
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 188, 0, 193, 195 );
-  CNFGColor(color_array[color_index++ % n_lines]);
-  CNFGTackRectangle( 211, 0, 216, 195 );
 
-  if (!(delay_count++ % delay)){
+  // vertical lines
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 4, 0, 9, 195 );  
+  if (delay_count % 2){
+    CNFGTackRectangle( 4, 0, 6, 195 );  
+  } else {
+    CNFGTackRectangle( 7, 0, 9, 195 );  
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 27, 0, 32, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 27, 0, 29, 195 );
+  } else {
+    CNFGTackRectangle( 30, 0, 32, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 50, 0, 55, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 50, 0, 52, 195 );
+  } else {
+    CNFGTackRectangle( 53, 0, 55, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 73, 0, 78, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 73, 0, 75, 195 );
+  } else {
+    CNFGTackRectangle( 76, 0, 78, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 96, 0, 101, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 96, 0, 98, 195 );
+  } else {
+    CNFGTackRectangle( 99, 0, 101, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 119, 0, 124, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 119, 0, 121, 195 );
+  } else {
+    CNFGTackRectangle( 122, 0, 124, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 142, 0, 147, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 142, 0, 144, 195 );
+  } else {
+    CNFGTackRectangle( 145, 0, 147, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 165, 0, 170, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 165, 0, 167, 195 );
+  } else {
+    CNFGTackRectangle( 168, 0, 170, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 188, 0, 193, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 188, 0, 190, 195 );
+  } else {
+    CNFGTackRectangle( 191, 0, 193, 195 );
+  }
+  
+  CNFGColor(color_array[color_index++ % n_lines]);
+  //CNFGTackRectangle( 211, 0, 216, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 211, 0, 213, 195 );
+  } else {
+    CNFGTackRectangle( 214, 0, 216, 195 );
+  }
+  
+
+  if (!(delay_count++ % delay_count)){
     color_offset++;
   }
 
   //horizontals
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 10, 216, 15 );
+  //CNFGTackRectangle( 0, 10, 216, 15 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 10, 216, 12 );
+  } else {
+    CNFGTackRectangle( 0, 13, 216, 15 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 30, 216, 35 );
+  //CNFGTackRectangle( 0, 30, 216, 35 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 30, 216, 32 );
+  } else {
+    CNFGTackRectangle( 0, 33, 216, 35 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 50, 216, 55 );
+  //CNFGTackRectangle( 0, 50, 216, 55 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 50, 216, 52 );
+  } else {
+    CNFGTackRectangle( 0, 53, 216, 55 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 70, 216, 75 );  
+  //CNFGTackRectangle( 0, 70, 216, 75 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 70, 216, 72 );
+  } else {
+    CNFGTackRectangle( 0, 73, 216, 75 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 90, 216, 95 );
+  //CNFGTackRectangle( 0, 90, 216, 95 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 90, 216, 92 );
+  } else {
+    CNFGTackRectangle( 0, 93, 216, 95 );
+  }
+  
   CNFGColor(  color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 110, 216, 115 );  
+  //CNFGTackRectangle( 0, 110, 216, 115 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 110, 216, 112 );
+  } else {
+    CNFGTackRectangle( 0, 113, 216, 115 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 130, 216, 135 );
+  //CNFGTackRectangle( 0, 130, 216, 135 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 130, 216, 132 );
+  } else {
+    CNFGTackRectangle( 0, 133, 216, 135 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 150, 216, 155 );
+  //CNFGTackRectangle( 0, 150, 216, 155 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 150, 216, 152 );
+  } else {
+    CNFGTackRectangle( 0, 153, 216, 155 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 170, 216, 175 );
+  //CNFGTackRectangle( 0, 170, 216, 175 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 170, 216, 172 );
+  } else {
+    CNFGTackRectangle( 0, 173, 216, 175 );
+  }
+  
   CNFGColor( color_array[color_index++ % n_lines] );
-  CNFGTackRectangle( 0, 190, 216, 195 );
+  //CNFGTackRectangle( 0, 190, 216, 195 );
+  if (delay_count % 2){
+    CNFGTackRectangle( 0, 190, 216, 192 );
+  } else {
+    CNFGTackRectangle( 0, 193, 216, 195 );
+  }
+  
 }
 
 void setup() {
