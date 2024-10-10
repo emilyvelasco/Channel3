@@ -10,23 +10,6 @@ void ICACHE_FLASH_ATTR loadFrame() {
    // video_broadcast_clear_frame();
     
 
-    //top row
- 
-    CNFGColor( C3_COL_RED );
-    CNFGTackRectangle( 160, 0, 192, 130);
-    
-    
-
-}
-
-void setup() {
-  system_update_cpu_freq( SYS_CPU_160MHZ );
-     pinMode(PIN_SWITCH_1, INPUT); 
-     pinMode(PIN_SWITCH_2, INPUT); 
-     pinMode(PIN_SWITCH_3, INPUT); 
-     pinMode(PIN_SWITCH_4, INPUT); 
-
-
 if (digitalRead(PIN_SWITCH_1) == HIGH)
      {
          CNFGColor( C3_COL_RED );
@@ -51,6 +34,19 @@ if (digitalRead(PIN_SWITCH_1) == HIGH)
      {
          // Keep default value
      }
+    
+    
+
+}
+
+void setup() {
+  system_update_cpu_freq( SYS_CPU_160MHZ );
+     pinMode(PIN_SWITCH_1, INPUT); 
+     pinMode(PIN_SWITCH_2, INPUT); 
+     pinMode(PIN_SWITCH_3, INPUT); 
+     pinMode(PIN_SWITCH_4, INPUT); 
+
+
  }
 
 
