@@ -10,22 +10,22 @@ void ICACHE_FLASH_ATTR loadFrame() {
    // video_broadcast_clear_frame();
     
 
-if (digitalRead(PIN_SWITCH_1) == HIGH)
+if (digitalRead(PIN_SWITCH_1) == LOW)
      {
          CNFGColor( C3_COL_RED );
          CNFGTackRectangle( 160, 0, 192, 130);
      }
-     else if (digitalRead(PIN_SWITCH_2) == HIGH)
+     else if (digitalRead(PIN_SWITCH_2) == LOW)
      {
          CNFGColor( C3_COL_GREEN_2 );
          CNFGTackRectangle( 160, 0, 192, 130);
      }
-     else if (digitalRead(PIN_SWITCH_3) == HIGH)
+     else if (digitalRead(PIN_SWITCH_3) == LOW)
      {
          CNFGColor( C3_COL_LIGHT_YELLOW );
          CNFGTackRectangle( 160, 0, 192, 130);
      }
-     else if (digitalRead(PIN_SWITCH_4) == HIGH)
+     else if (digitalRead(PIN_SWITCH_4) == LOW)
      {
          CNFGColor( C3_COL_DARK_BLUE );
          CNFGTackRectangle( 160, 0, 192, 130);
@@ -41,10 +41,10 @@ if (digitalRead(PIN_SWITCH_1) == HIGH)
 
 void setup() {
   system_update_cpu_freq( SYS_CPU_160MHZ );
-     pinMode(PIN_SWITCH_1, INPUT); 
-     pinMode(PIN_SWITCH_2, INPUT); 
-     pinMode(PIN_SWITCH_3, INPUT); 
-     pinMode(PIN_SWITCH_4, INPUT); 
+     pinMode(PIN_SWITCH_1, INPUT_PULLUP); 
+     pinMode(PIN_SWITCH_2, INPUT_PULLUP); 
+     pinMode(PIN_SWITCH_3, INPUT_PULLUP); 
+     pinMode(PIN_SWITCH_4, INPUT_PULLUP); 
 
 
  }
